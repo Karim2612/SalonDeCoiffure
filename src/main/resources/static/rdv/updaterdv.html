@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Salon Coiffure Management | Update Rdv</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Script files -->
+	<script type="text/javascript" src="/js/update/update_rdv.js"></script>
+	<script type="text/javascript" src="/js/load/rdv.js"></script>
+	
+	 <!-- Bootstrap 5.0 CSS -->
+	 <link href="/resources/bootstrap-5.0.1-dist/css/bootstrap.css" rel="stylesheet">
+	 <!-- JQuery -->
+	 <script src="/resources/jquery-3.4.1.min.js"></script>
+	 <!-- Bootstrap 5.0 Bundle with Popper -->
+	 <script src="/resources/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
+	 
+	   <!-- Template Stylesheet -->
+       <link href="../css/bootstrap.min.css" rel="stylesheet">
+	   <!-- Template Stylesheet -->
+	   <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn"
+    data-wow-delay="0.1s">
+    <a href="/admin/dashboard" class="navbar-brand ms-4 ms-lg-0">
+        <h1 class="mb-0 text-primary text-uppercase"><i class="fa fa-cut me-3"></i>Admin Dashboard</h1>
+    </a>
+</nav>
+<!-- Navbar End -->
+
+<div class="container-xxl py-5">
+	<div class="container">
+		<div class="row g-10 justify-content-center">
+			<div class=" wow fadeInUp" data-wow-delay="0.1s">
+				<div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+		<div class="col-sm-6 form-design" id="div_servise_updating">
+                <h3>Update Rdvsxxxxxxxxxxxx</h3>
+				<form id="update_rdv_form" class="row">
+                    <div class="form-group col-12">
+                        <label for="rdv_id">Id:</label>
+                        <input type="number" class="form-control" id="rdv_id" readonly>
+                    </div>
+
+					<div class="form-group col-12">
+						<label class="control-label" for="userID">User Id:</label>
+						<input type="number" class="form-control" id="userID" placeholder="Enter User ID" name="userID" ></input>
+					</div> 
+					<div class="form-group col-12">
+						<label class="control-label" for="serviseID">Service Id:</label>
+						<input type="number" class="form-control" id="serviseID" placeholder="Enter Service ID" name="ServiseID" ></input>
+					</div> 
+
+
+					<div class="form-group col-6">
+						<label class="control-label" for="date_heur_rdv">Date et heur:</label>
+						<input type="date" class="form-control" id="date_heur_rdv"
+							   placeholder="Enter date" name="date_heur_rdv" required></input>
+					</div>
+					<div class="form-group col-6">
+						<label class="control-label" for="date_creation_rdv">Date Creation:</label>
+						<input type="date" class="form-control" id="date_creation_rdv"
+							   placeholder="Enter date creation" name="date_creation_rdv" required></input>
+					</div>	
+					<div class="form-group col-12">
+						<label class="control-label" for="description_rdv">Description:</label>
+						<input type="text" class="form-control" id="description_rdv"
+							   placeholder="Enter description" name="description_rdv"></input>
+					</div>
+					
+					<button type="button" onclick="window.history.back();" class="btn btn-secondary col-4">Cancel</button>
+					<button type="submit" class="btn btn-primary col-4">Update</button>
+				</form>
+				<div id="response" style="display:none; margin:10px">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

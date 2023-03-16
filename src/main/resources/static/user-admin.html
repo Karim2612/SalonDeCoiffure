@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Salon Coiffure Management | Users</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5.0 CSS -->
+    <link href="/resources/bootstrap-5.0.1-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script src="/resources/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap 5.0 Bundle with Popper -->
+    <script src="/resources/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
+    <!-- Script files -->
+    <script type="text/javascript" src="/js/post/post_user.js"></script>
+    <script type="text/javascript" src="/js/update/update_user.js"></script>
+    <script type="text/javascript" src="/js/delete/delete_user.js"></script>
+    <script type="text/javascript" src="/js/get/get_user.js"></script>
+    <script type="text/javascript" src="/js/getDate.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <meta charset="utf-8">
+    <title>My Salon </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn"
+        data-wow-delay="0.1s">
+        <a href="/admin/dashboard" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="mb-0 text-primary text-uppercase"><i class="fa fa-cut me-3"></i>Admin Dashboard</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href=" /admin/dashboard " class="nav-item nav-link ">Dashboard</a>
+                <a href="/user-admin.html" class="nav-item nav-link active">User</a>
+                <a href="/rdv-admin.html" class="nav-item nav-link">Rdv</a>
+                <a href="/service-admin.html" class="nav-item nav-link">Service</a>
+
+                
+                <a href="/admin/dashboard" class=" nav-item nav-link" sec:authentication="name"></a>
+                <a class="nav-item nav-link" sec:authentication="authorities"></a>
+                <!-- <a th:href="@{/logout}" class="nav-item nav-link">Log out</a> -->
+
+
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+
+    <div class="container-fluid">
+        <div id="div_user_table">
+            <h1 class="listing" style="text-align: center;">Users Listing</h1>
+            <div class="table-responsive" style="margin: auto;">
+                <table id="userTable" class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Mobile</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>Enabled</th>
+                            <th>Locked</th>
+                            <th>Role</th>
+                            <th>Created_at</th>
+                            <th>Updated_at</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="add-form">
+                <!-- <button class="btn btn-success">
+                    <a style="color: white;text-decoration: none;" data-bs-toggle="modal"
+                        data-bs-target="/register.html">Insert New</a>
+                </button> -->
+                <button class="btn btn-success"> <a style="color: white;text-decoration: none;" data-bs-toggle="modal"
+                        onclick="window.location.href='http://localhost:8888/register';">Insert New</a></button>
+            </div>
+        </div>
+
+        <!-- Delete modal -->
+        <div class="modal fade" id="delete-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete</h5>
+                        <button type="button" class="btn-close close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body delete-form"></div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="model-delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add modal -->
+        <div class="modal fade" id="add-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add User</h5>
+                        <button type="button" class="btn-close close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form id="add_new_user" class="row">
+                            <div class="form-group col-12">
+                                <label class="control-label" for="firstName">First Name:</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter name"
+                                    name="first_name" maxlength="25" required></input>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="control-label" for="lastName">Last Name:</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter last name "
+                                    name="last_name" maxlength="25" required></input>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="control-label" for="email">Email:</label>
+                                <input type="text" class="form-control" id="email" placeholder="Enter Email"
+                                    name="email" maxlength="30" required></input>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="control-label" for="password">Password:</label>
+                                <input type="text" class="form-control" id="password" placeholder="Enter Email de user"
+                                    name="password" maxlength="50" required></input>
+                            </div>
+                            <!-- <div class="form-group col-4">
+                                <label class="control-label" for="createdAt">Created At:</label>
+                                <input type="date" class="form-control" id="createdAt"
+                                    placeholder="Enter date" name="created_at" required></input>
+                            </div> -->
+                            <!-- <div class="form-group col-4">
+                                <label class="control-label" for="updatedAt">Updated At:</label>
+                                <input type="date" class="form-control" id="updatedAt"
+                                    placeholder="Enter date creation" name="updated_at" required></input>
+                            </div> -->
+                            <div class="form-group col-12">
+                                <label class="control-label" for="mobile">Mobile:</label>
+                                <input type="number" class="form-control" id="mobile" placeholder="Enter mobile"
+                                    name="mobile" required></input>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="control-label" for="enabled">Enabled:</label>
+                                <input type="boolean" class="form-control" id="enabled" placeholder="enabled?"
+                                    name="enabled"></input>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <label class="control-label" for="locked">Locked:</label>
+                                <input type="boolean" class="form-control" id="locked" placeholder="locked?"
+                                    name="locked"></input>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="control-label" for="role">Role:</label>
+                                <input type="role" class="form-control" id="role" placeholder="Enter role"
+                                    name="role"></input>
+                            </div>
+
+
+                            <button type="button" class="btn btn-secondary col-4"
+                                data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary col-4" id="btn-add-new-user">Create</button>
+                        </form>
+                        <div id="response" style="display:none; margin-top:10px"></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

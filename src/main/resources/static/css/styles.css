@@ -1,0 +1,151 @@
+body {
+    display: block;
+    margin: 8px;
+}
+
+#secret {
+    text-align: center;
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+}
+
+#copyright {
+	float: right;
+    position: absolute;
+	padding-bottom: 40px;
+	padding-top: 10px;
+	text-align: center;
+	bottom: 0px;
+	
+}
+
+#footer {
+    
+	float: right;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+	text-align: center;
+    
+ }
+
+.listing {
+    margin: 0.7em 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+#content-title {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+}
+
+table {
+    text-align: center;
+}
+
+.add-form {
+    margin-top: 1em;
+}
+
+.separator {
+    padding: 0 0.1em;
+}
+
+.checkbox {
+    margin-bottom: .3em;
+    text-align: center;
+}
+
+/* ================ Subtitle ================ */
+
+.subtitle {
+    text-align: center;
+}
+
+.subtitle span {
+    display: inline-block;
+    position: relative;
+}
+
+.subtitle span::before,
+.subtitle span::after {
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    top: 15px;
+    width: 50px;
+}
+
+.subtitle span::before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.subtitle span::after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+/* ================================ */
+
+button {
+    margin: auto;
+}
+
+/* form style */
+.form-group, .form-check {
+    margin-bottom: 1rem;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 1.7rem;
+}
+
+.form-check:first-of-type {
+    margin-bottom: 0;
+}
+
+.form-design {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 3px;
+    margin: auto;
+}
+
+/* Credits - Creator */
+.credits {
+    text-decoration: none;
+    color: #7386D5;
+}
+
+.credits:hover {
+    color: #d2f4ea;
+}
+
+@media only screen and (max-width: 800px) {
+    .subtitle span::before,
+    .subtitle span::after {
+        width: 30px;
+    }
+}
+
+

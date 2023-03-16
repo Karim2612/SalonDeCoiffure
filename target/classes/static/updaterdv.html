@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Salon Coiffure Management | Update Rdvssss</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap 5.0 CSS -->
+	<link href="/resources/bootstrap-5.0.1-dist/css/bootstrap.css" rel="stylesheet">
+	<!-- JQuery -->
+	<script src="/resources/jquery-3.4.1.min.js"></script>
+	<!-- Bootstrap 5.0 Bundle with Popper -->
+	<script src="/resources/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
+	<!-- Script files -->
+	<script type="text/javascript" src="/js/update/update_rdv.js"></script>
+	<script type="text/javascript" src="/js/load/rdv.js"></script>
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+
+	<div class="container">
+		<div>
+            <div class="col-sm-6 form-design" id="div_rdv_updating">
+                <h3>Update Rdv</h3>
+				<form id="update_rdv_form" class="row">
+                    <div class="form-group col-12">
+                        <label for="rdv_id">Id:</label>
+                        <input type="number" class="form-control" id="rdv_id" readonly>
+                    </div>
+
+					<div class="form-group col-12">
+                        <label for="user_id">Id:</label>
+                        <input type="number" class="form-control" id="user_id" readonly>
+                    </div>
+					<div class="form-group col-12">
+                        <label for="servise_id">Id:</label>
+                        <input type="number" class="form-control" id="servise_id" readonly>
+                    </div>
+
+
+
+					<div class="form-group col-6">
+						<label class="control-label" for="date_heur_rdv">Date et heur:</label>
+						<input type="date" class="form-control" id="date_heur_rdv"
+							   placeholder="Enter date" name="date_heur_rdv" required></input>
+					</div>
+					<div class="form-group col-6">
+						<label class="control-label" for="date_creation_rdv">Date Creation:</label>
+						<input type="date" class="form-control" id="date_creation_rdv"
+							   placeholder="Enter date creation" name="date_creation_rdv" required></input>
+					</div>	
+					<div class="form-group col-12">
+						<label class="control-label" for="description_rdv">Description:</label>
+						<input type="text" class="form-control" id="description_rdv"
+							   placeholder="Enter description" name="description_rdv"></input>
+					</div>
+					
+					<button type="button" onclick="window.history.back();" class="btn btn-secondary col-4">Cancel</button>
+					<button type="submit" class="btn btn-primary col-4">Update</button>
+				</form>
+				<div id="response" style="display:none; margin:10px">
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</body>
+</html>
